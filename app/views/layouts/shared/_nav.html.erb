@@ -6,7 +6,8 @@
 				<div class="nav-collapse collapse">
 						<ul class="nav">
 							<li class="<%= 'active' if current_page? root_path %>"><%= link_to 'Home', :root %></li>
-							<li class="<%= 'active' if current_page? projects_path %>"><%= link_to 'Projects', :projects %></li>
+							<li class="<%= 'active' if current_page? projects_path or @project%> ">
+								<%= link_to 'Projects', :projects %></li>
 						</ul>
 				</div>
 			</div>
