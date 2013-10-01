@@ -1,5 +1,5 @@
 <h1>Listing Projects</h1>
 
 	<% @project.each do |project| %>
-	<p>Project Name: <%= project.title %></p>
+	<p>Project Name: <%= link_to project.title, project %></p>
 	<% end %>	
