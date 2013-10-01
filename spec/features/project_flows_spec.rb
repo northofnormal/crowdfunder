@@ -28,5 +28,24 @@ describe "Project Listing" do
 			page.should have_content("Project 3")
 			expect(page).to have_content("Project 3")
 		end
+
+		it "should display the navigation" do
+			# visit the root URL
+			visit '/'
+			# expect the page we are on is root
+			expect(current_path).to eq(root_path)
+			# expect the home nave element is active
+			page.should have_selector('.navbar ul li.active a', text: "Home")
+			expect(page).to have_selector('.navbar ul li.active a', text: "Home")
+
+			# click on the link to Projects
+			page.find('.navbar ul').click_link('Projects')
+			# expect that the page we are on is projects page
+			expect(current_path).to eq(projects_path)
+
+			# expect the projects nav element is active
+			page.should have_selector('.navbar ul li.active a', text: "Projects")
+			expect(page).to have_selector('.navbar ul li.active a', text: "Projects")
+		end
 	end
 end
