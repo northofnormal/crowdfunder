@@ -27,6 +27,13 @@ describe "Project Listing" do
 
 			page.should have_content("Project 3")
 			expect(page).to have_content("Project 3")
+
+			# click a link to show Project 1's page
+			click_link('Project 1')
+			# expect we are on Project 1's page
+			expect(current_path).to eq(projects_path(project1))
+			# expect on this page the first h1 has the text project1's title
+			expect(page).to have_selector('h1:first', text: project1.title)
 		end
 
 		it "should display the navigation" do
