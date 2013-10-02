@@ -51,5 +51,35 @@ describe "UserAuthenticationFlows", js: true do
         have_content("Try Again")
       end
   	end
+
+    it "should successfully log in" do
+      visit "/"
+      find('.navbar').has_no_link?('logout').should be_true
+      # calling the helper method here 
+      user = setup_signed_in_user
+      find('.navbar').has_link?('logout').should be_true
+    end
+
+    it "should unsuccessfully log in" do 
+      visit '/sessions/new'
+
+      fill_in "email" with: "a@b.com"
+      fill_in "password" with: "invalid creds"
+      click_button "login"
+
+      expect(current_path).to eq(sessions_path)
+
+      expect(page).to have_content('Invalid')
+    end
+
+    it "should successfully logout" do
+      #calling helper method again
+      user = setup_signed_in_user
+      visit '/'
+      find('.navbar').click_link 'logout'
+      expect(page).to have_content('bye')
+
+      find('.navbar').has_no_link?('logout')
+    end
   end
 end
