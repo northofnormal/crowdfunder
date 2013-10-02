@@ -15,17 +15,14 @@ group :tools do
 	gem 'guard-rspec'
 end
 
-group :development do
+group :development, :test do
 	gem 'rspec-rails', '~> 2.0'
 	gem 'better_errors'
 	gem 'binding_of_caller'
 	gem 'pry-rails'
-end
-
-group :test do
-	gem 'rspec-rails', '~> 2.0'
-	gem 'factory_girl_rails'
 	gem 'capybara'
+	gem 'selenium-webdriver'
+	gem 'factory_girl_rails'
 end
 
 gem 'jquery-rails'

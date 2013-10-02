@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "UserAuthenticationFlows" do
+describe "UserAuthenticationFlows", js: true do
   describe "when visiting sign in page" do
   	it "should successfully register a user" do
 
@@ -23,7 +23,7 @@ describe "UserAuthenticationFlows" do
   		click_button "Create Account"
 
   		# after submitting the form, should be redirected to the root
-  		# expect(current_path).to eq(root_path)
+  		expect(current_path).to eq(root_path)
   		# with a message that says "Account Created"
   		expect(page).to have_content("Account Created")
   		# and the nav no longer has a link to "sign up" but to "log out"
@@ -46,7 +46,10 @@ describe "UserAuthenticationFlows" do
   		#no messages should appear
   		expect(page).to have_no_content("Account Created")
 
-      # 
+      # Should see "try again" message on failure to register
+      within(:css, '.alert') do
+        have_content("Try Again")
+      end
   	end
   end
 end
