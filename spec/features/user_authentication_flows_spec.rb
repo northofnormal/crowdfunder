@@ -19,16 +19,17 @@ describe "UserAuthenticationFlows" do
   		fill_in "user[first_name]", :with => user.first_name
   		fill_in "user[last_name]", :with => user.last_name
   		fill_in "user[password]", :with => user.password
+      fill_in "user[password_confirmation]", :with => user.password
   		click_button "Create Account"
 
   		# after submitting the form, should be redirected to the root
-  		expect(current_path).to eq(root_path)
+  		# expect(current_path).to eq(root_path)
   		# with a message that says "Account Created"
   		expect(page).to have_content("Account Created")
   		# and the nav no longer has a link to "sign up" but to "log out"
   		within(:css, '.navbar') do
   			has_no_link?("Sign Up")
-  			has_link("Log Out")
+  			has_link?("Log Out")
   		end
   	end
 
@@ -44,6 +45,8 @@ describe "UserAuthenticationFlows" do
 
   		#no messages should appear
   		expect(page).to have_no_content("Account Created")
+
+      # 
   	end
   end
 end
