@@ -6,6 +6,5 @@ FactoryGirl.define do
   	last_name "Galt"
   	sequence(:email) { |n| "john#{n}@galt.com"}
   	password "whoisjohngault"
-  	password_confirmation "whoisjohngault"
   end
 end

@@ -13,7 +13,7 @@ describe "Pledge Listing" do
 			click_link 'Back this project'
 
 			expect(current_path).to eq(new_session_path)
-			expect(page).to have_content("Please log in first")
+			expect(page).to have_content("Please login first")
 		end
 
 		it "authenticated user can pledge valid amount" do
@@ -42,8 +42,6 @@ describe "Pledge Listing" do
 			expect(pledge.project).to eq(@project)
 
 			expect(pledge.amount).to eq(100)
-
-			expect(last_emai.to).to eq([@project.user.email])
 		end
 	end	
 end
