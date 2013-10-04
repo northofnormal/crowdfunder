@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.14'
 gem 'pg'
 gem 'sorcery'
+gem 'jquery-rails'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -26,5 +29,3 @@ group :development, :test do
 	gem 'launchy'
 	gem 'letter_opener'
 end
-
-gem 'jquery-rails'
