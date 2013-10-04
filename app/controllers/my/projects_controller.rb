@@ -23,7 +23,7 @@ class My::ProjectsController < ApplicationController
 	end
 
 	def create
-		@project = current_user.projects.build params[:project]
+		@project = current_user.projects.create params[:project]
 
 		if @project.save
 			redirect_to [:my, :projects], notice: "Project created!"

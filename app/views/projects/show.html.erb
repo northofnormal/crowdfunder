@@ -1,7 +1,12 @@
 <h1><%= @project.title %></h1>
 <p>A project by <%= @project.user.first_name %> <%= @project.user.last_name %></p>
 
+<% if current_user == @project.user %>
+	<div>
+		<%= link_to "Edit this project", edit_my_project_path, class: 'btn btn-danger' %>
+	</div>
+<% else %>
 <div>
 	<%= link_to "Back this project", new_project_pledge_path(@project), class: 'btn btn-info'%>
 </div>
-
+<% end %>
