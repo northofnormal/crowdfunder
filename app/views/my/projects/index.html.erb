@@ -1,0 +1,7 @@
+<h1>My Projects</h1>
+
+	<% @project.each do |project| %>
+	<p>Project Name: <%= link_to project.title, project %></p>
+	<% end %>	
+
+	<%= link_to "Create a new project", new_project_path, class: "btn btn-success" %>

@@ -15,6 +15,10 @@ Crowdfunder::Application.routes.draw do
     resources :pledges, :only => [:new, :create]
   end
 
+  namespace :my do
+    resources :projects
+  end
+
   root to: 'welcome#index' 
 
   # The priority is based upon order of creation:
