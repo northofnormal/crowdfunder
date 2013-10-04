@@ -67,7 +67,7 @@ describe "Project Listing" do
 		it "should have pagination" do
 			user = FactoryGirl.create:user
 
-			50.times { |i| FactoryGirl.create (:project, title: "Project #{i}", user: user) }
+			50.times { |i| FactoryGirl.create(:project, title: "Project #{i}",user: user) }
 
 			visit '/projects'
 

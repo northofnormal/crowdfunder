@@ -1,6 +1,6 @@
 <h1>Edit this project!</h1>
 
-<%= form_for @project do |f| %>
+<%= form_for [:my, @project] do |f| %>
 	<div class="field">
 		<%= f.label :title %>
 		<%= f.text_field :title %>

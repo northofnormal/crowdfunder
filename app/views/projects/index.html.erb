@@ -1,5 +1,9 @@
 <h1>Listing Projects</h1>
 
 	<% @project.each do |project| %>
-	<p>Project Name: <%= link_to project.title, project %></p>
+	<ul>
+		<li class="project"><%= link_to project.title, project %><br>
+				<%= project.teaser %></li>
+	</ul>
 	<% end %>	
+	<%= paginate @project %>
