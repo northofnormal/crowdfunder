@@ -42,6 +42,8 @@ describe "Pledge Listing" do
 			expect(pledge.project).to eq(@project)
 
 			expect(pledge.amount).to eq(100)
+
+			expect(last_email.to).to eq([@project.user.email])
 		end
 	end	
 end

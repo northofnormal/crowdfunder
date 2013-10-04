@@ -24,6 +24,7 @@ group :development, :test do
 	gem 'selenium-webdriver'
 	gem 'factory_girl_rails'
 	gem 'launchy'
+	gem 'letter_opener'
 end
 
 gem 'jquery-rails'
