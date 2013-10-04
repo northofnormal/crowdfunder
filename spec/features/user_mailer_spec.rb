@@ -9,6 +9,6 @@ describe "UserMailer" do
 
 		expect(email.to).to eq([project.user.email])
 
-		expect(email.subject).to eq("Your project received some backing on Crowdfunder!")
+		expect(email.subject).to eq("Your project received some backing on Crowdfunder.")
 	end
 end
